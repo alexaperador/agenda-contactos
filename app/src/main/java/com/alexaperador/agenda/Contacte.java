@@ -5,12 +5,17 @@ import java.util.Objects;
 
 public class Contacte {
     private String nombre;
+    private String primerApellido;
+
+    private String segundoApellido;
     private String email;
     private String telefon;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
 
-    public Contacte(String nombre, String email, String telefon, Date fechaNacimiento) {
+    public Contacte(String nombre, String primerApellido, String segundoApellido, String email, String telefon, String fechaNacimiento) {
         this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
         this.email = email;
         this.telefon = telefon;
         this.fechaNacimiento = fechaNacimiento;
@@ -24,11 +29,27 @@ public class Contacte {
         this.nombre = nombre;
     }
 
-    public Date getFechaNacimiento() {
+    public String getPrimerApellido() {
+        return primerApellido;
+    }
+
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
+
+    public String  getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -52,6 +73,8 @@ public class Contacte {
     public String toString() {
         return "Contacte{" +
                 "nombre='" + nombre + '\'' +
+                ", primerApellido='" + primerApellido + '\'' +
+                ", segundoApellido='" + segundoApellido + '\'' +
                 ", email='" + email + '\'' +
                 ", telefon='" + telefon + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
@@ -62,11 +85,11 @@ public class Contacte {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Contacte contacte = (Contacte) o;
-        return Objects.equals(nombre, contacte.nombre) && Objects.equals(email, contacte.email) && Objects.equals(telefon, contacte.telefon) && Objects.equals(fechaNacimiento, contacte.fechaNacimiento);
+        return Objects.equals(nombre, contacte.nombre) && Objects.equals(primerApellido, contacte.primerApellido) && Objects.equals(segundoApellido, contacte.segundoApellido) && Objects.equals(email, contacte.email) && Objects.equals(telefon, contacte.telefon) && Objects.equals(fechaNacimiento, contacte.fechaNacimiento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, email, telefon, fechaNacimiento);
+        return Objects.hash(nombre, primerApellido, segundoApellido, email, telefon, fechaNacimiento);
     }
 }

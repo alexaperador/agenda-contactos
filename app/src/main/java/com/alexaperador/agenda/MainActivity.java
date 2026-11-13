@@ -3,7 +3,9 @@ package com.alexaperador.agenda;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final List<Contacte> contacteList = MainActivity.getContacteList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,15 +28,18 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        List<Contacte> contacteList = MainActivity.getContacteList();
         Button btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
             startActivity(intent);
         });
+
+        ListView listView = findViewById(R.id.listView);
+        ArrayAdapter<Contacte> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, contacteList);
+        listView.setAdapter(adapter);
     }
 
-    private static List<Contacte> getContacteList() {
-        return null;
+    public static List<Contacte> getContacteList() {
+        return contacteList;
     }
 }

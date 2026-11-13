@@ -23,6 +23,7 @@
             android:textSize="40dp" />
 
         <ListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -33,7 +34,7 @@
         android:layout_height="60dp"
         android:layout_margin="20dp"
         android:orientation="horizontal"
-        android:background="#EEEEEE"
+
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
@@ -42,8 +43,12 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Afegir contacte"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/hintColor"
+            android:paddingVertical="12dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
